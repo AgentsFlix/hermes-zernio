@@ -1,0 +1,21 @@
+{
+  "name": "hermes-zernio",
+  "version": "1.0.0",
+  "repository": "https://github.com/jcarlosamorim/hermes-zernio",
+  "raw_base_url": "https://raw.githubusercontent.com/jcarlosamorim/hermes-zernio/main/",
+  "bootstrap_order": [
+    "WEB_BOOTSTRAP.md",
+    "START_HERE.md",
+    "skills/integrations/zernio-operations/SKILL.md",
+    "policies/action-classification.yaml",
+    "skills/integrations/zernio-operations/references/capability-map.md"
+  ],
+  "phases": ["secret", "read_inventory", "classify", "preview_approval", "execute_verify"],
+  "skill_files": ["skills/integrations/zernio-operations/SKILL.md"],
+  "scripts": [
+    "skills/integrations/zernio-operations/scripts/inventory_zernio.py",
+    "scripts/update_docs_snapshot.py"
+  ],
+  "attachment_policy": "Repository process only. Never commit user credentials, account IDs, social content, private media, webhook secrets, or personal data.",
+  "documentation_update_policy": "A downloaded docs snapshot requires human review and a versioned change before affecting operational instructions."
+}

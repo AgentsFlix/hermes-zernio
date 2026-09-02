@@ -1,0 +1,24 @@
+version: 1
+classes:
+  read:
+    examples: [list_profiles, list_accounts, list_posts, analytics, list_webhooks, health_check]
+    approval: not_required
+    verification: response_status_and_snapshot
+  draft_or_preview:
+    examples: [compose_post_preview, calculate_schedule, render_media_plan]
+    approval: not_required
+    verification: local_artifact
+  external_write:
+    examples: [create_post, schedule_post, edit_post, reply_dm, reply_comment, mark_read, upload_media, create_webhook, connect_account, create_automation, change_campaign]
+    approval: explicit_payload_approval
+    verification: read_back_exact_resource
+  destructive_or_irreversible:
+    examples: [delete_post, unpublish_post, disconnect_account, delete_webhook, delete_automation, publish_whatsapp_flow, send_broadcast]
+    approval: explicit_payload_approval_and_impact_confirmation
+    verification: read_back_or_provider_receipt
+rules:
+  - Never infer permission to publish, schedule, send, reply, mark as read, run automation, alter ads, connect or disconnect accounts, or delete.
+  - For social posts use a fresh x-request-id per logical post and reuse it only for retry of that exact call.
+  - Treat content-hash 409 as a duplicate alert, not permission to alter content or post again.
+  - Do not expose API keys, OAuth state, webhook signing secrets, account IDs, handles, contacts, recipient lists or media URLs in public artifacts.
+  - A webhook receiver must validate its signature, deduplicate events, store minimal data and have no broad credentials for unrelated actions.
