@@ -6,7 +6,7 @@ Processo público e verificável para um Hermes descobrir e operar uma conta Zer
 
 Forneça a chave somente em um canal seguro. Em seguida, diga ao Hermes:
 
-> Leia e ative esta skill: https://raw.githubusercontent.com/jcarlosamorim/hermes-zernio/main/skills/integrations/zernio-operations/SKILL.md. Salve `ZERNIO_API_KEY` apenas no ambiente protegido do perfil atual e faça exclusivamente o inventário de leitura.
+> Leia e ative esta skill: https://raw.githubusercontent.com/AgentsFlix/hermes-zernio/main/skills/integrations/zernio-operations/SKILL.md. Salve `ZERNIO_API_KEY` apenas no ambiente protegido do perfil atual e faça exclusivamente o inventário de leitura.
 
 A skill não publica, agenda, responde, envia DM, cria automação, altera campanhas, nem apaga conteúdo por inferência.
 
